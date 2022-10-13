@@ -1,15 +1,22 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const Mailto = ({ className, email, subject, body, ...props }: any) => {
+type MailtoProps = {
+  className: string
+  email: string
+  subject: string
+  body: string
+  children: ReactNode
+}
+const Mailto = ({ className, email, subject, body, children }: MailtoProps) => {
   return (
     <a
       className={className}
       href={`mailto:${email}?subject=${subject || ""}&body=${body || ""}`}
     >
-      {props.children}
+      {children}
     </a>
   )
 }

@@ -1,8 +1,12 @@
-import * as React from "react"
+import React, { ReactNode } from "react"
 
 import Header from "./header"
 
-const Layout = ({ children }: any) => {
+type LayoutProp = {
+  children: ReactNode
+}
+
+const Layout = ({ children }: LayoutProp) => {
   return (
     <>
       <Header />
