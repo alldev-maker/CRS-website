@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 type MailtoProps = {
   className: string
@@ -26,10 +25,10 @@ const Header = () => {
     query {
       headerData: contentfulLayout {
         logo {
-          gatsbyImageData
+          url
         }
         mobileLogo {
-          gatsbyImageData
+          url
         }
         contactMail
         contactSubject
@@ -44,13 +43,13 @@ const Header = () => {
       <nav className="bg-black py-4">
         <div className="container flex justify-between items-center">
           <Link to="/">
-            <GatsbyImage
-              image={getImage(headerData?.logo) || headerData?.logo}
+            <img
+              src={headerData?.logo.url}
               className="hidden md:block"
               alt="Captive Reinsurance Solutions Logo"
             />
-            <GatsbyImage
-              image={getImage(headerData?.mobileLogo) || headerData?.mobileLogo}
+            <img
+              src={headerData?.mobileLogo.url}
               className="md:hidden"
               alt="Captive Reinsurance Solutions Logo"
             />
