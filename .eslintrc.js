@@ -11,5 +11,9 @@ module.exports = {
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "prettier/prettier": 2, // This will cause Prettier problems to error
+    "no-unused-vars": [
+      "error", {
+        "vars": "all", "args": "after-used", "ignoreRestSiblings": false
+      }]
   },
 };
